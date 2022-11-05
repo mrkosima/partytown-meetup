@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Partytown - XKE</title>
+  <link type="text/css" rel="stylesheet" href="../styles.css" />
+  <script type="application/javascript" src="../js/script.js"></script>
+  </script>
+</head>
+
+<body>
+  <h1>[02] Web Worker</h1>
+  <h3>Seconds: <span id="time">0</span></h3>
+  <button id="button">Long calc</button>
+  <h6 id="result"/>
+</body>
+<script>
+
+  async function calculateInWorker() {
+    const scriptText = await fetch('../js/calculate.js').then(res => res.text());
+    const newWorkerStr = `
+      self.onmessage=function(){${scriptText};
+      postMessage(calculate());}
+    `;
+    const workerBlob = new Blob(
+      [newWorkerStr], 
+      { type: 'application/javascript' }
+    );
+    const worker = new Worker(URL.createObjectURL(workerBlob));
+    worker.onmessage = function (e) {
+      document.getElementById('result').innerHTML = event.data.toLocaleString();
+      worker.terminate();
+    }
+    worker.postMessage('calculate'); // calculate
+  }
+
+  document.getElementById('button').addEventListener('click', calculateInWorker);
+</script>
+
+</html>
