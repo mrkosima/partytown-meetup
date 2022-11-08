@@ -8,4 +8,8 @@ This repository was created for demo purposes for my talk at [AdvancedJS Amsterd
 
 `npm run dev`
 
-Slides: TBA
+## DEMO
+
+To run live coding demo checkout the branch: `demo/before-01`.
+
+## Slides: TBA

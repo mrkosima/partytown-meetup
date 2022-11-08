@@ -1,7 +1,7 @@
-console.log(`[counter.js] 👋 Hello from client-width.js`);
+console.log(`[client-width.js] 👋 Hello from client-width.js`);
 
 setTimeout(() => {
-  console.log('Client width:', document.body.clientWidth);
+  console.log(`[client-width.js] document.body.clientWidth = ${document.body.clientWidth}`);
 }, 3000);
 
 

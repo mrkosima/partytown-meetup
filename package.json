@@ -4,7 +4,7 @@
   "description": "Partytown code examples for meetup talk",
   "main": "index.html",
   "scripts": {
-    "start": "npx http-server --cors -c-1 -s -o",
+    "start": "npx http-server --cors -c-1 -s",
     "partytown": "partytown copylib ./~partytown",
     "dev": "npm run partytown && npm start"
   },
@@ -12,13 +12,10 @@
     "type": "git",
     "url": "git+https://github.com/mrkosima/partytown-meetup.git"
   },
-  "author": "Konstantin Klimashevich ",
+  "author": "Konstantin Klimashevich",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mrkosima/partytown-meetup/issues"
   },
-  "homepage": "https://github.com/mrkosima/partytown-meetup#readme",
-  "dependencies": {
-    "@builder.io/partytown": "^0.7.1"
-  }
+  "homepage": "https://github.com/mrkosima/partytown-meetup#readme"
 }
