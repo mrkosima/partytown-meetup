@@ -2,23 +2,17 @@
 <html>
 
 <head>
-  <title>Partytown - XKE</title>
+  <title>AdvancedJS meetup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link type="text/css" rel="stylesheet" href="../styles.css" />
-  <script type="application/javascript" src="../js/script.js"></script>
-  <script type="application/javascript" src="../js/calculate.js"></script>
+  <script type="application/javascript" src="../js/timer.js"></script>
+  <script type="application/javascript" defer src="../~partytown/partytown.js"></script>
+  <script type="text/partytown" src="../3rd-party/client-width.js"></script>
 </head>
 
 <body>
-  <h1>[01] JS main thread</h1>
-  <h3>Seconds: <span id="time">0</span></h3>
-  <button id="button">Long calc</button>
-  <h6 id="result"/>
+  <h1><a href="/">Home</a> / Client width</h1>
+  <h3>Timer: <span id="time">0</span></h3>
 </body>
-<script>
-  document.getElementById('button').addEventListener('click', () => {
-    console.log('clicked!');
-    calculate();
-  });
-</script>
 
 </html>

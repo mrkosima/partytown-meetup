@@ -2,39 +2,17 @@
 <html>
 
 <head>
-  <title>Partytown - XKE</title>
+  <title>AdvancedJS meetup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link type="text/css" rel="stylesheet" href="../styles.css" />
-  <script type="application/javascript" src="../js/script.js"></script>
-  </script>
+  <script type="application/javascript" src="../js/timer.js"></script>
+  <script type="application/javascript" defer src="../~partytown/partytown.js"></script>
+  <script type="text/partytown" src="../3rd-party/counter.js"></script>
 </head>
 
 <body>
-  <h1>[02] Web Worker</h1>
-  <h3>Seconds: <span id="time">0</span></h3>
-  <button id="button">Long calc</button>
-  <h6 id="result"/>
+  <h1><a href="/">Home</a> / Counter</h1>
+  <h3>Timer: <span id="time">0</span></h3>
 </body>
-<script>
-
-  async function calculateInWorker() {
-    const scriptText = await fetch('../js/calculate.js').then(res => res.text());
-    const newWorkerStr = `
-      self.onmessage=function(){${scriptText};
-      postMessage(calculate());}
-    `;
-    const workerBlob = new Blob(
-      [newWorkerStr], 
-      { type: 'application/javascript' }
-    );
-    const worker = new Worker(URL.createObjectURL(workerBlob));
-    worker.onmessage = function (e) {
-      document.getElementById('result').innerHTML = event.data.toLocaleString();
-      worker.terminate();
-    }
-    worker.postMessage('calculate'); // calculate
-  }
-
-  document.getElementById('button').addEventListener('click', calculateInWorker);
-</script>
 
 </html>

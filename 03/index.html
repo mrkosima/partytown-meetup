@@ -2,30 +2,42 @@
 <html>
 
 <head>
-  <title>Partytown - XKE</title>
+  <title>AdvancedJS meetup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link type="text/css" rel="stylesheet" href="../styles.css" />
-  <script type="application/javascript" src="../js/script.js"></script>
+  <script type="application/javascript" src="../js/timer.js"></script>
+  <script type="application/javascript" defer src="../~partytown/partytown.js"></script>
   <script>
     partytown = {
       debug: true,
-      forward: ["calculate"]
+      forward: ["fibonacci"]
     };
   </script>
-  <script type="application/javascript" src="../~partytown/partytown.js"></script>
-  <script type="text/partytown" src="../js/calculate.js"></script>
+  <script type="text/partytown" src="../3rd-party/fibonacci.js"></script>
 </head>
 
 <body>
-  <h1>[03] Partytown 🎉</h1>
+  <h1><a href="/">Home</a> / Fibonacci</h1> 
   <h3>Seconds: <span id="time">0</span></h3>
-  <button id="button">Long calc</button>
-  <h6 id="result" />
+  <div class="switch-container">
+    <span>Fast:</span>
+    <label class="switch">
+      <input id="isFast" type="checkbox">
+      <span class="slider"></span>
+    </label>
+  </div>
+  <button id="calculate">Calculate</button>
 </body>
+
 <script>
-  document.getElementById('button').addEventListener('click', () => {
-    console.log('clicked!');
-    calculate();
-  });
+  let N = 0; // INITIAL VALUE
+
+  const calculate = () => {
+    const fast = document.getElementById('isFast').checked;
+    fibonacci(N, fast);
+    N++;
+  }
+  document.getElementById('calculate').addEventListener('click', calculate);
 </script>
 
 </html>

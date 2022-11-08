@@ -4,8 +4,9 @@
   "description": "Partytown code examples for meetup talk",
   "main": "index.html",
   "scripts": {
-    "start": "npm run partytown && npx http-server --cors -c-1 -s -o",
-    "partytown": "partytown copylib ./~partytown"
+    "start": "npx http-server --cors -c-1 -s -o",
+    "partytown": "partytown copylib ./~partytown",
+    "dev": "npm run partytown && npm start"
   },
   "repository": {
     "type": "git",
